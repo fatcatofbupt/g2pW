@@ -127,3 +127,4 @@ data/*.csv
 data/*.pkl
 tmp/*
 saved_models/*
+cpp_dataset
