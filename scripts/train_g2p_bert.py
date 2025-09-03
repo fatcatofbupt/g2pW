@@ -20,7 +20,7 @@ from transformers import BertTokenizer
 from g2pw.dataset import prepare_data, prepare_pos, TextDataset, get_phoneme_labels, get_char_phoneme_labels
 from g2pw.module import G2PW
 from g2pw.utils import load_config, RunningAverage, get_logger
-
+from loguru import logger
 
 def train_batch(model, data, optimizer, device):
     model.train()
@@ -98,6 +98,7 @@ def evaluate(model, valid_loader, device):
 
 
 def test(config, checkpoint, device, sent_path=None, lb_path=None, pos_path=None):
+    logger.debug(f"checkpoint:{checkpoint}, device:{device}, sent_path:{sent_path}, lb_path:{lb_path}, pos_path:{pos_path}")
     if sent_path is None:
         sent_path = config.test_sent_path
     if lb_path is None:

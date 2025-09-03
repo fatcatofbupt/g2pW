@@ -12,11 +12,11 @@ from g2pw.dataset import prepare_data, TextDataset, get_phoneme_labels, get_char
 from g2pw.module import G2PW
 from g2pw.utils import load_config
 from train_g2p_bert import test
-
+from loguru import logger
 
 def main(config, test_sent_path, test_lb_path, test_pos_path, checkpoint_path):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
+    logger.debug(f"device={device},test_sent_path={test_sent_path},test_lb_path={test_lb_path},test_pos_path={test_pos_path}")
     test_metric = test(config, checkpoint_path, device, sent_path=test_sent_path, lb_path=test_lb_path, pos_path=test_pos_path)
 
     test_pos_acc = 'none' if test_metric['pos_acc'] is None else test_metric['pos_acc']

@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=5 python scripts/train_g2p_bert.py --config configs/config_cpp.py

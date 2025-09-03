@@ -1,7 +1,7 @@
-root = './cpp_dataset/'
+root = '../cpp_dataset/'
 
 manual_seed = 1313
-model_source ='./saved_models/google-bert/bert-base-chinese'
+model_source ='../saved_models/google-bert/bert-base-chinese'
 # model_source = 'bert-base-chinese'
 polyphonic_chars_path = root + 'POLYPHONIC_CHARS.txt'
 window_size = 32
@@ -26,8 +26,7 @@ test_lb_path = root + 'test.lb'
 batch_size = 256
 lr = 5e-5
 val_interval = 200
-# num_iter = 10000
-num_iter = 1000
+num_iter = 10000
 use_pos = True
 param_pos = {
     'weight': 0.1,
